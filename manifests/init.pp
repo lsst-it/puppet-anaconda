@@ -22,7 +22,7 @@ class anaconda (
   case $facts['os']['family'] {
     'RedHat': {
       exec { 'install_anaconda':
-        command => "/bin/wget https://repo.anaconda.com/archive/${anaconda_version}-Linux-x86_64.sh -O /tmp/anaconda_installer.sh && /bin/bash /tmp/anaconda_installer.sh -b -p /opt/anaconda",
+        command => "curl -o /tmp/anaconda_installer.sh https://repo.anaconda.com/archive/${anaconda_version}-Linux-x86_64.sh && /bin/bash /tmp/anaconda_installer.sh -b -p /opt/anaconda",
         creates => '/opt/anaconda/bin/conda',
         path    => '/usr/bin:/bin:/opt/anaconda/bin',
       }

@@ -38,7 +38,7 @@ describe 'anaconda' do
 
         it {
           is_expected.to contain_exec('install_anaconda').with(
-            'command' => '/bin/wget https://repo.anaconda.com/archive/quux-Linux-x86_64.sh -O /tmp/anaconda_installer.sh && /bin/bash /tmp/anaconda_installer.sh -b -p /opt/anaconda'
+            'command' => 'curl -o /tmp/anaconda_installer.sh https://repo.anaconda.com/archive/quux-Linux-x86_64.sh && /bin/bash /tmp/anaconda_installer.sh -b -p /opt/anaconda'
           )
         }
 
@@ -59,12 +59,6 @@ describe 'anaconda' do
             'ensure' => 'file',
             'mode' => '0644',
             'content' => 'source /opt/anaconda/bin/activate foo'
-          )
-        }
-
-        it {
-          is_expected.to contain_package('wget').with(
-            'ensure' => 'installed'
           )
         }
       end
