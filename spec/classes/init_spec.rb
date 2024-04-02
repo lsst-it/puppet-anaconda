@@ -26,31 +26,31 @@ describe 'anaconda' do
 
         it {
           is_expected.to contain_exec('create_conda_env').with(
-            'command' => '/opt/anaconda/bin/conda create -y --name foo python=bar',
+            'command' => '/opt/anaconda/bin/conda create -y --name foo python=bar'
           )
         }
 
         it {
           is_expected.to contain_exec('install_baz_via_conda').with(
-            'command' => 'conda install -y -n foo -c qux baz=corge',
+            'command' => 'conda install -y -n foo -c qux baz=corge'
           )
         }
 
         it {
           is_expected.to contain_exec('install_anaconda').with(
-            'command' => '/bin/wget https://repo.anaconda.com/archive/quux-Linux-x86_64.sh -O /tmp/anaconda_installer.sh && /bin/bash /tmp/anaconda_installer.sh -b -p /opt/anaconda',
+            'command' => '/bin/wget https://repo.anaconda.com/archive/quux-Linux-x86_64.sh -O /tmp/anaconda_installer.sh && /bin/bash /tmp/anaconda_installer.sh -b -p /opt/anaconda'
           )
         }
 
         it {
           is_expected.to contain_exec('install_libmamba_env').with(
-            'command' => '/opt/anaconda/bin/conda install -y -n foo conda-libmamba-solver',
+            'command' => '/opt/anaconda/bin/conda install -y -n foo conda-libmamba-solver'
           )
         }
 
         it {
           is_expected.to contain_exec('set_libmamba').with(
-            'command' => 'conda config --set solver libmamba',
+            'command' => 'conda config --set solver libmamba'
           )
         }
 
@@ -58,13 +58,13 @@ describe 'anaconda' do
           is_expected.to contain_file('/etc/profile.d/conda_source.sh').with(
             'ensure' => 'file',
             'mode' => '0644',
-            'content' => 'source /opt/anaconda/bin/activate foo',
+            'content' => 'source /opt/anaconda/bin/activate foo'
           )
         }
 
         it {
           is_expected.to contain_package('wget').with(
-            'ensure' => 'installed',
+            'ensure' => 'installed'
           )
         }
       end
