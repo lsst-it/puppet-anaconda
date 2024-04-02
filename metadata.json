@@ -1,0 +1,27 @@
+{
+  "name": "lsst-anaconda",
+  "version": "0.1.0",
+  "author": "AURA/LSST/Rubin Observatory",
+  "summary": "Installs anaconda and manages environments and packages",
+  "license": "Apache-2.0",
+  "source": "https://github.com/lsst-it/puppet-anaconda.git",
+  "tags": [
+    "anaconda",
+    "conda"
+  ],
+  "dependencies": [],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "AlmaLinux",
+      "operatingsystemrelease": [
+        "9"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 7.0.0 < 9.0.0"
+    }
+  ]
+}
