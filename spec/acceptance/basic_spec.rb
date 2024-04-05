@@ -6,13 +6,13 @@ describe 'anaconda class' do
   let(:manifest) do
     <<-PP
     class { 'anaconda':
-      anaconda_version   => 'foo',
-      python_env_name    => 'bar',
-      python_env_version => 'baz',
+      anaconda_version   => 'Anaconda3-2023.07-2',
+      python_env_name    => 'py311',
+      python_env_version => '3.11',
       conda_packages => {
-        'qux' => {
-          'channel' => 'corge',
-          'version' => 'quux',
+        'pyside2' => {
+          'channel' => 'conda-forge',
+          'version' => '5.15.8',
         },
       },
     }
